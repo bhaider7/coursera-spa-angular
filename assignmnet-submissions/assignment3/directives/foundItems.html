@@ -1,0 +1,10 @@
+<div class="form-group container-fluid">
+  <div ng-repeat="item in menu.items" class="row">
+      <div class="col-md-1">{{item.short_name}}</div>
+      <div class="col-md-3">{{item.name}}</div>
+      <div class="col-md-5">{{item.description}}</div>
+      <div class="col-md-2">
+        <button ng-click="menu.onRemove({index: $index});" class="btn">Don't want this one!</button>        
+      </div>
+  </div>
+</div>

@@ -55,14 +55,14 @@
 
     // exposed methods
 
-    service.getItemsToBuy = function () {
+    service.getItemsToBuy = function(){
       return itemListToBuy;
     };
-    service.getItemsAlreadyBought = function functionName() {
+    service.getItemsAlreadyBought = function(){
       return itemListAlreadyBought;
     };
 
-    service.markItemAsBought = function (item){
+    service.markItemAsBought = function(item){
       var itemIndex = itemListToBuy.indexOf(item);
       addItemToBoughtList(item);
       removeItemFromBuyList(itemIndex);
