@@ -12,7 +12,7 @@
   function FoundItemsDirective() {
     var ddo = {
       restrict: 'E',
-      templateUrl: '/directives/foundItems.html',
+      templateUrl: 'directives/foundItems.html',
       scope: {
         items: '<',
         onRemove: '&'
