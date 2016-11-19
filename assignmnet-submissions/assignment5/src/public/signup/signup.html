@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+    <div class="panel transparent">
+      <div class="panel-heading">
+        <div class="panel-title text-uppercase"><h3>Sign Up <small>to our newsletter</small></h3></div>
+      </div>
+      <div class="panel-body transparent">
+        <form name="signupform" class="form-horizontal" role="form" novalidate>
+          <div class="form-group">
+            <label for="firstname" class="col-md-3 control-label">
+              <abbr title="Required">*</abbr> First Name</label>
+            <div class="col-md-9">
+              <input type="text" name="firstname" placeholder="First Name" class="form-control"
+                ng-model="signupCtrl.user.firstname"
+                required
+                minlength="3"
+                ng-maxlength="12">
+                <span class="error"
+                  ng-if="(signupform.firstname.$error.minlength || signupform.firstname.$error.required)
+                   && signupform.firstname.$touched">
+                  First Name must be at least 3 characters long!
+                </span>
+                <span class="error" ng-if="signupform.firstname.$error.maxlength && signupform.firstname.$touched">
+                  First Name must not be longer than 12 characters!
+                </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastname" class="col-md-3 control-label">
+              <abbr title="Required">*</abbr> Last Name</label>
+            <div class="col-md-9">
+              <input type="text" name="lastname" placeholder="Last Name" class="form-control"
+                  ng-model="signupCtrl.user.lastname"
+                  required
+                  minlength="3"
+                  ng-maxlength="12">
+              <span  class="error"
+                ng-if="(signupform.lastname.$error.minlength || signupform.lastname.$error.required)
+                && signupform.lastname.$touched">
+                Last Name must be at least 3 characters long!
+              </span>
+              <span class="error" ng-if="signupform.lastname.$error.maxlength && signupform.lastname.$touched">
+                Last Name must not be longer than 12 characters!
+              </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-md-3 control-label">
+              <abbr title="Required">*</abbr> Email</label>
+            <div class="col-md-9">
+              <input type="email" name="email" placeholder="Email Address" class="form-control"
+                ng-model="signupCtrl.user.email"
+                required>
+              <span class="error" ng-if="signupform.email.$invalid && signupform.email.$touched">
+                  Must be a valid email address: handle@domain format !
+              </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phoneno" class="col-md-3 control-label">Phone No.</label>
+            <div class="col-md-9">
+              <input type="text" name="phone" placeholder="Phone ###-###-####" class="form-control"
+              ng-model="signupCtrl.user.phone"
+              pattern="(\d{3})-(\d{3})-(\d{4})">
+              <span class="error" ng-if="signupform.phone.$invalid && signupform.phone.$touched">
+                Phone must be in the format ###-###-####.
+              </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="favdish" class="col-md-3 control-label">
+              <abbr title="Required">*</abbr> Favorite Dish</label>
+            <div class="col-md-9">
+              <input type="text" class="form-control" name="favdish" placeholder="Menu No. of Your Favorite Dish"
+               ng-model="signupCtrl.user.favdish"
+               required
+               min-length="1"
+               max-length="5">
+               <span class="error" ng-if="signupform.favdish.$invalid && signupform.favdish.$touched">
+                 Favorite Dish should be 5 characters or less!
+               </span>
+               <span class="success" ng-if="signupCtrl.completed">
+                 <br />
+                 Your information has been saved.
+               </span>
+               <span class="error" ng-if="signupCtrl.isError">
+                 No such menu number exists!
+               </span>
+            </div>
+          </div>
+          <div class="form-group"><!-- Button -->
+            <div class="col-md-offset-3 col-md-9">
+              <button class="btn btn-default btn-lg"
+                ng-disabled="signupform.$invalid"
+                ng-click="signupCtrl.submit()">
+                <i class="icon-hand-right"></i> Sign Up
+              </button>
+            </div>
+          </div> <!-- button div end -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

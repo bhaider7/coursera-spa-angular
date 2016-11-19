@@ -1,0 +1,62 @@
+<div class="container" ng-if="!myinfoCtrl.hasUserSignedUp">
+  <h3>You are not registered!!!</h3>
+  <br/>
+  <h4>Please <a ui-sref="public.signup">SIGN UP</a> first.</h4>
+</div>
+<div class="container row" ng-if="myinfoCtrl.hasUserSignedUp">
+  <div class="col-md-5"> <!-- user info -->
+    <div class="panel-heading">
+      <div class="panel-title text-uppercase"><h3>My Info</h3></div>
+    </div>
+    <div>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label class="col-sm-4 control-label">First Name: </label>
+          <div class="col-sm-8">
+            <p class="form-control-static">{{ myinfoCtrl.user.firstname }}</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-4 control-label">Last Name: </label>
+          <div class="col-sm-8">
+            <p class="form-control-static">{{ myinfoCtrl.user.lastname }}</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-4 control-label">Email: </label>
+          <div class="col-sm-8">
+            <p class="form-control-static">{{ myinfoCtrl.user.email }}</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-4 control-label">Phone No.: </label>
+          <div class="col-sm-8">
+            <p class="form-control-static">{{ myinfoCtrl.user.phone }}</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <div class="panel-heading">
+      <div class="panel-title text-uppercase"><h3>My Favorite Dish</h3></div>
+    </div>
+    <div class="menu-item-tile">
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="menu-item-photo">
+            <div>{{myinfoCtrl.menuItem.short_name}}</div>
+            <img class="img-responsive" width="250" height="150" ng-src="{{myinfoCtrl.ApiPath}}/images/{{myinfoCtrl.menuItem.short_name}}.jpg" alt="{{myinfoCtrl.menuItem.name}}">
+          </div>
+          <div class="menu-item-price">{{myinfoCtrl.menuItem.price_small | currency}}<span> {{myinfoCtrl.menuItem.small_portion_name}}</span> {{myinfoCtrl.menuItem.price_large | currency}} <span>{{myinfoCtrl.menuItem.large_portion_name}}</span></div>
+        </div>
+        <div class="menu-item-description col-sm-7">
+          <h3 class="menu-item-title">{{myinfoCtrl.menuItem.name}}</h3>
+          <p class="menu-item-details">{{myinfoCtrl.menuItem.description}}</p>
+        </div>
+      </div>
+      <hr class="visible-xs">
+    </div>
+
+  </div>
+</div>
